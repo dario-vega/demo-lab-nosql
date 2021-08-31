@@ -3,7 +3,7 @@
 2. NoSQL - 20 minutes
 3. Execute and Review Code Functions - 20 minutes
 
-## LAB1 - Setup - 10 minutes
+## LAB1 - Setup - 2 minutes
 
 ### Step 1. Create a compartment 
 Go to OCI console -> Identity & Security -> Compartments.
@@ -12,15 +12,7 @@ Click on Create Compartment. This opens up a new window.
 
 Choose **demonosql** as compartment name, choose a description and add it.
 
-### Step 2. Create an API Key and Auth Token for your user
-
-Login to OCI console.
-
-Click on your Profile -> User Settings. On the bottom left, click on Auth Tokens. Click on Generate Token.
-
-Provide a description and then hit Generate Token. This will generate a token. **Make sure to copy the token and save it for future steps**.
-
-### Step 4. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
+### Step 2. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
 
@@ -135,6 +127,6 @@ cat queries.sql
 
 ```
 
-## LAB3  Execute and Review Code Functions  - 20 minutes
+## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 
