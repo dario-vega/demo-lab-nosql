@@ -143,6 +143,7 @@ Run the express_oracle_nosql application
 
 ````
 cd demo-lab-nosql/express-nosql
+npm install
 node express_oracle_nosql.js &
 ````
 
@@ -160,7 +161,12 @@ Read Data
 
 ````
 curl -X GET http://localhost:3000
+
+
+curl -X GET http://localhost:3000/1762322446040
+
+
 ````
 
-👷 BUILD SPECIFIC APIS
+👷 BUILD SPECIFIC to APIS
 
