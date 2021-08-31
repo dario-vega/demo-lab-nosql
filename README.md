@@ -75,7 +75,7 @@ resource oci_nosql_table export_demoKeyVal {
   }
   freeform_tags = {
   }
-  is_auto_reclaimable = "false"
+  is_auto_reclaimable = "true"
   name                = "demoKeyVal"
   table_limits {
     max_read_units     = "10"
@@ -92,7 +92,7 @@ resource oci_nosql_table export_demo {
   }
   freeform_tags = {
   }
-  is_auto_reclaimable = "false"
+  is_auto_reclaimable = "true"
   name                = "demo"
   table_limits {
     max_read_units     = "10"
