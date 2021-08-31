@@ -106,6 +106,24 @@ app.get('/', async function (req, resW) {
   client = createClient();
   console.log('Application running!');
 
+
+function createClient() {
+  console.log (process.env.OCI_REGION)  
+  console.log (process.env.COMP_ID) 
+  return new NoSQLClient({
+      region: process.env.OCI_REGION,
+			compartment:process.env.COMP_ID,
+            auth: {
+                iam: {
+                    tenantId: process.env.OCI_TENANCY,,
+                    userId: 'ocid1.user.oc1..aaaaaaaacgewi4whb5u2k5fmah3dlgnwgxxet44qf3dhnkqmiam44ih3nvma',
+                    fingerprint: 'd4:85:32:ef:65:ff:2b:7b:5e:d8:b7:c8:8d:e5:0a:c6',
+                    privateKeyFile: 'NoSQLprivateKey.pem'
+                }
+            }
+        });
+}
+/*
 function createClient() {
   console.log (process.env.OCI_REGION)  
   console.log (process.env.COMP_ID)  
@@ -119,3 +137,4 @@ function createClient() {
     }
   });
 }
+*/
