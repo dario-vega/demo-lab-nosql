@@ -160,11 +160,14 @@ curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost
 Read Data
 
 ````
-curl -X GET http://localhost:3000
+curl -X GET http://localhost:3000  | jq
+curl  http://localhost:3000/?limit=3 | jq
+curl  "http://localhost:3000/?limit=3&orderby=id"  | jq
+curl  "http://localhost:3000/?limit=12&orderby=blog"  | jq
 
+curl -X GET http://localhost:3000/1762322446040  | jq
 
-curl -X GET http://localhost:3000/1762322446040
-
+curl -X DELETE http://localhost:3000/1762322446040  | jq
 
 ````
 
