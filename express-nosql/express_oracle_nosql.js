@@ -5,6 +5,7 @@ let express = require('express');
 const NoSQLClient = require('oracle-nosqldb').NoSQLClient;
 const ServiceType = require('oracle-nosqldb').ServiceType;
 const bodyParser = require('body-parser');
+const process = require('process');
 
 let app = express();
 app.use(bodyParser.json());
@@ -84,7 +85,8 @@ app.get('/', async function (req, resW) {
       statement = statement + " OFFSET " + offset;
     }
 
-    console.log (statement)  
+    console.log (process.env.OCI_REGION)  
+    console.log (process.env.COMP_ID)  
   
     try {
       let cnt ;
@@ -106,10 +108,14 @@ app.get('/', async function (req, resW) {
   client = createClient();
   console.log('Application running!');
 
-function createClient() {
-  return new NoSQLClient({
-            serviceType: ServiceType.KVSTORE,
-            endpoint: 'proxy-nosql:80'
-        });
-
+function createClientResource() {
+  return  new NoSQLClient({
+    region: process.env.OCI_REGION,
+    compartment:process.env.COMP_ID,
+    auth: {
+        iam: {
+            useInstancePrincipal: true
+        }
+    }
+  });
 }
