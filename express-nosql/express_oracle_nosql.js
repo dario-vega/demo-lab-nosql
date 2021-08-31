@@ -32,7 +32,7 @@ process
 // Create a new blog
 app.post('/', async (req, res) => {
     try {
-        const result = await client.put("BlogTable", req.body );
+        const result = await client.put("demo", req.body );
         res.json({ result: result});
     } catch (err) {
         console.error('failed to insert data', err);
@@ -44,7 +44,7 @@ app.post('/', async (req, res) => {
 app.get('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await client.get("BlogTable", { id })
+        const result = await client.get("demo", { id })
         res.json(result.row);
     } catch (err) {
         console.error('failed to get data', err);
@@ -56,7 +56,7 @@ app.get('/:id', async (req, res) => {
 app.delete('/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await client.delete("BlogTable", { id });
+        const result = await client.delete("demo", { id });
         res.json({ result: result});
     } catch (err) {
         console.error('failed to delete data', err);
@@ -66,7 +66,7 @@ app.delete('/:id', async (req, res) => {
 
 // Get all blog
 app.get('/', async function (req, resW) {
-    let statement = `SELECT * FROM blogtable`;
+    let statement = `SELECT * FROM demo`;
     const rows = [];
 
     let offset;
@@ -85,8 +85,6 @@ app.get('/', async function (req, resW) {
       statement = statement + " OFFSET " + offset;
     }
 
-    console.log (process.env.OCI_REGION)  
-    console.log (process.env.COMP_ID)  
   
     try {
       let cnt ;
@@ -109,6 +107,8 @@ app.get('/', async function (req, resW) {
   console.log('Application running!');
 
 function createClientResource() {
+  console.log (process.env.OCI_REGION)  
+  console.log (process.env.COMP_ID)  
   return  new NoSQLClient({
     region: process.env.OCI_REGION,
     compartment:process.env.COMP_ID,
