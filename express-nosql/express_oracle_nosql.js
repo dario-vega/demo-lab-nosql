@@ -106,7 +106,7 @@ app.get('/', async function (req, resW) {
   client = createClient();
   console.log('Application running!');
 
-function createClientResource() {
+function createClient() {
   console.log (process.env.OCI_REGION)  
   console.log (process.env.COMP_ID)  
   return  new NoSQLClient({
