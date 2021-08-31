@@ -40,6 +40,17 @@ app.post('/', async (req, res) => {
     }
 });
 
+// Create a new baggage entry demokeyval
+app.post('/demoKeyVal', async (req, res) => {
+    try {
+        const result = await client.put("demoKeyVal", {value : req.body}, {exactMatch:true} );
+        res.json({ result: result});
+    } catch (err) {
+        console.error('failed to insert data', err);
+        res.status(500).json({ error: err });
+    }
+});
+
 // Get a baggage by ticketNo
 app.get('/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
