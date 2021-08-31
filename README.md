@@ -1,5 +1,5 @@
 # WORKSHOP OUTLINE
-1. Setup - 10 minutes
+1. Setup - 2 minutes
 2. NoSQL - 20 minutes
 3. Execute and Review Code NOde.js - express - 20 minutes
 
