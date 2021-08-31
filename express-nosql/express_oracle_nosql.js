@@ -29,7 +29,7 @@ process
   process.exit(0);
 });
 
-// Create a new blog
+// Create a new baggage entry
 app.post('/', async (req, res) => {
     try {
         const result = await client.put("demo", req.body );
@@ -40,11 +40,11 @@ app.post('/', async (req, res) => {
     }
 });
 
-// Get a blog by id
-app.get('/:id', async (req, res) => {
-    const { id } = req.params;
+// Get a baggage by ticketNo
+app.get('/:ticketNo', async (req, res) => {
+    const { ticketNo } = req.params;
     try {
-        const result = await client.get("demo", { id })
+        const result = await client.get("demo", { ticketNo })
         res.json(result.row);
     } catch (err) {
         console.error('failed to get data', err);
@@ -52,11 +52,11 @@ app.get('/:id', async (req, res) => {
     }
 });
 
-// Delete a blog
-app.delete('/:id', async (req, res) => {
-    const { id } = req.params;
+// Delete a  baggage by ticketNo
+app.delete('/:ticketNo', async (req, res) => {
+    const { ticketNo } = req.params;
     try {
-        const result = await client.delete("demo", { id });
+        const result = await client.delete("demo", { ticketNo });
         res.json({ result: result});
     } catch (err) {
         console.error('failed to delete data', err);
@@ -64,7 +64,7 @@ app.delete('/:id', async (req, res) => {
     }
 });
 
-// Get all blog
+// Get all  baggage with pagination
 app.get('/', async function (req, resW) {
     let statement = `SELECT * FROM demo`;
     const rows = [];
