@@ -129,4 +129,38 @@ cat queries.sql
 
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
+````
+export NOSQL_COMP_ID==`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+
+echo $OCI_REGION
+echo $OCI_TENANCY
+export NOSQL_USER_ID=ocid1.user.oc1..aaaaaaaacgewi4whb5u2k5fmah3dlgnwgxxet44qf3dhnkqmiam44ih3nvma
+export NOSQL_FINGERPRINT=d4:85:32:ef:65:ff:2b:7b:5e:d8:b7:c8:8d:e5:0a:c6
+copy NoSQLprivateKey.pem
+````
+
+Run the express_oracle_nosql application
+
+````
+cd demo-lab-nosql/express-nosql
+node express_oracle_nosql.js &
+````
+
+Execute the API request
+
+Insert Data
+
+````
+FILE_NAME=`ls -1 ~/BaggageData/baggage_data_file99.json`
+echo $FILE_NAME
+curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000
+````
+
+Read Data
+
+````
+curl -X GET http://localhost:3000
+````
+
+👷 BUILD SPECIFIC APIS
 
