@@ -1,0 +1,17 @@
+{
+  "name": "express_oracle_nosql",
+  "version": "1.0.0",
+  "description": "Basic demo of Express with Oracle NoSQL",
+  "private":"true",
+  "main": "express_oracle_nosql.js",
+  "scripts": {
+    "start": "express_oracle_nosql.js"
+  },
+  "keywords": [],
+  "author": " ",
+  "license": "MIT",
+  "dependencies": {
+    "oracle-nosqldb": "^5.2",
+    "express": "^4.17"
+  }
+}
