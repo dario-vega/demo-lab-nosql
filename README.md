@@ -25,8 +25,8 @@ Provide a description and then hit Generate Token. This will generate a token. *
 Open the Cloud Shell (click in the icon > ) in the top right menu
 
 ````
-git clone https://github.com/dario-vega/demo-lab-baggage
-sh ~/demo-lab-baggage/data.sh
+git clone https://github.com/dario-vega/demo-lab-nosql
+sh ~/demo-lab-nosql/data.sh
 ````
 
 
@@ -39,7 +39,7 @@ Open the Cloud Shell (click in the icon > ) in the top right menu. Use the follo
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
-cd ~/demo-lab-baggage/objects
+cd ~/demo-lab-nosql/objects
 CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 COMP_ID=${CMP_ID-$OCI_TENANCY}
 echo $COMP_ID
