@@ -32,7 +32,7 @@ sh ~/demo-lab-nosql/data.sh
 
 ## LAB2 NoSQL - 20 minutes
 
-### Step 1. NoSQL Tables Deployment
+### Step 1. NoSQL Tables Deployment -- Always Free
 
 Open the Cloud Shell (click in the icon > ) in the top right menu. Use the following instructions
 
@@ -48,14 +48,18 @@ echo $DDL_TABLE
 
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
---table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
+--table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
+--is-auto-reclaimable true \
+--wait-for-state SUCCEEDED
 
 DDL_TABLE=$(cat demoKeyVal.nosql)
 echo $DDL_TABLE
 
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demoKeyVal  --ddl-statement "$DDL_TABLE" \
---table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
+--table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
+--is-auto-reclaimable true \
+--wait-for-state SUCCEEDED
 
 ```
 
