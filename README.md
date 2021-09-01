@@ -132,11 +132,7 @@ cat queries.sql
 ````
 export NOSQL_COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 
-echo $OCI_REGION
-echo $OCI_TENANCY
-export NOSQL_USER_ID=ocid1.user.oc1..aaaaaaaacgewi4whb5u2k5fmah3dlgnwgxxet44qf3dhnkqmiam44ih3nvma
-export NOSQL_FINGERPRINT=d4:85:32:ef:65:ff:2b:7b:5e:d8:b7:c8:8d:e5:0a:c6
-copy NoSQLprivateKey.pem
+
 ````
 
 Run the express_oracle_nosql application
