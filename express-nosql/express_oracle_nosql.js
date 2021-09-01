@@ -140,7 +140,7 @@ function createClient() {
   console.log (process.env.COMP_ID)  
   return  new NoSQLClient({
     region: process.env.OCI_REGION,
-    compartment:process.env.COMP_ID,
+    compartment:process.env.NOSQL_COMP_ID,
     auth: {
         iam: {
             useInstancePrincipal: true
