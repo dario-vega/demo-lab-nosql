@@ -132,6 +132,11 @@ cat queries.sql
 ````
 export NOSQL_COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 
+echo $OCI_REGION
+echo $OCI_TENANCY
+export NOSQL_USER_ID=ocid1.user.oc1..aaaa3nvma
+export NOSQL_FINGERPRINT=d4:85:30a:c6
+copy NoSQLprivateKey.pem
 
 ````
 
