@@ -130,7 +130,7 @@ cat queries.sql
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 ````
-export NOSQL_COMP_ID==`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+export NOSQL_COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 
 echo $OCI_REGION
 echo $OCI_TENANCY
