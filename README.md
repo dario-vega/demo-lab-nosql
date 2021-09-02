@@ -13,11 +13,13 @@ Click on Create Compartment. This opens up a new window.
 Choose **demonosql** as compartment name, choose a description and add it.
 
 ### Step 2. Create an API Key
-Open the Cloud Shell (click in the icon > ) in the top right menu
-
-Note: need to be executed in the HOME region
 
 Click on your Profile -> User Settings. Copy your OCID
+
+
+Open the Cloud Shell (click in the icon > ) in the top right menu
+Note: need to be executed in the HOME region
+
 
 Replace <yourUserOCID> before to execute the following commands
 
