@@ -1,7 +1,7 @@
 # WORKSHOP OUTLINE
 1. Setup - 2 minutes
 2. NoSQL - 20 minutes
-3. Execute and Review Code NOde.js - express - 20 minutes
+3. Execute and Review Code Node.js - express - 20 minutes
 
 ## LAB1 - Setup - 2 minutes
 
@@ -18,6 +18,7 @@ Click on your Profile -> User Settings. Copy your OCID
 
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
+
 Note: need to be executed in the HOME region
 
 
@@ -33,6 +34,7 @@ oci iam user api-key upload --user-id <yourUserOCID> --key-file NoSQLLabPublicKe
 ### Step 3. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
+
 Note: need to be executed in the PHOENIX region
   
 
@@ -50,6 +52,7 @@ cp ~/info.json ~/demo-lab-nosql/express-nosql
 ### Step 1. NoSQL Tables Deployment -- Always Free
 
 Open the Cloud Shell (click in the icon > ) in the top right menu. Use the following instructions
+
 Note: need to be executed in the PHOENIX region
 
 
