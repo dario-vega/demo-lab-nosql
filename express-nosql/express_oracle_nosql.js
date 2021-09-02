@@ -128,8 +128,8 @@ function createClient() {
                 iam: {
                     tenantId: process.env.OCI_TENANCY,
                     userId: process.env.NOSQL_USER_ID,
-                    fingerprint: process.env.NOSQL_FINGERPRINT,
-                    privateKeyFile: 'NoSQLprivateKey.pem'
+                    fingerprint: "d4:85:32:ef:65:ff:2b:7b:5e:d8:b7:c8:8d:e5:0a:c6",
+                    privateKeyFile: 'NoSQLLabPrivateKey.pem'
                 }
             }
         });
