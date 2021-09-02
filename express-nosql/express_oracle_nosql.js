@@ -120,7 +120,7 @@ app.get('/', async function (req, resW) {
 
 function createClient() {
   console.log (process.env.OCI_REGION)  
-  console.log (process.env.COMP_ID) 
+  console.log (process.env.NOSQL_COMP_ID) 
   return new NoSQLClient({
       region: process.env.OCI_REGION,
       compartment:process.env.NOSQL_COMP_ID,
@@ -128,16 +128,17 @@ function createClient() {
                 iam: {
                     tenantId: process.env.OCI_TENANCY,
                     userId: process.env.NOSQL_USER_ID,
-                    fingerprint: "d4:85:32:ef:65:ff:2b:7b:5e:d8:b7:c8:8d:e5:0a:c6",
+                    fingerprint: process.env.NOSQL_FINGERPRINT,
                     privateKeyFile: 'NoSQLLabPrivateKey.pem'
                 }
             }
         });
 }
+
 /*
 function createClient() {
   console.log (process.env.OCI_REGION)  
-  console.log (process.env.COMP_ID)  
+  console.log (process.env.NOSQL_COMP_ID)  
   return  new NoSQLClient({
     region: process.env.OCI_REGION,
     compartment:process.env.NOSQL_COMP_ID,
