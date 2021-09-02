@@ -205,11 +205,9 @@ curl -X DELETE http://localhost:3000/1762322446040  | jq
 
 ````
 function createClient() {
-  console.log (process.env.OCI_REGION)  
-  console.log (process.env.COMP_ID)  
   return  new NoSQLClient({
     region: process.env.OCI_REGION,
-    compartment:process.env.COMP_ID,
+    compartment:process.env.NOSQL_COMP_ID,
     auth: {
         iam: {
             useInstancePrincipal: true
