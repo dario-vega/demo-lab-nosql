@@ -30,9 +30,6 @@ oci iam user api-key upload --user-id <yourUserOCID> --key-file NoSQLLabPublicKe
 
 ````
 
-Choose **demonosql** as compartment name, choose a description and add it.
-
-
 ### Step 3. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
