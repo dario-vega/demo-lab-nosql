@@ -21,7 +21,7 @@ Open the Cloud Shell (click in the icon > ) in the top right menu
 Note: need to be executed in the HOME region
 
 
-Replace <yourUserOCID> before to execute the following commands
+Replace < yourUserOCID > before to execute the following commands
 
 ````
 openssl genrsa -out NoSQLLabPrivateKey.pem  4096        
