@@ -12,13 +12,37 @@ Click on Create Compartment. This opens up a new window.
 
 Choose **demonosql** as compartment name, choose a description and add it.
 
-### Step 2. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
+### Step 2. Create an API Key
+Open the Cloud Shell (click in the icon > ) in the top right menu
+
+Note: need to be executed in the HOME region
+
+Click on your Profile -> User Settings. Copy your OCID
+
+Replace <yourUserOCID> before to execute the following commands
+
+````
+openssl genrsa -out NoSQLLabPrivateKey.pem  4096        
+openssl rsa -pubout -in NoSQLLabPrivateKey.pem -out NoSQLLabPublicKey.pem
+oci iam user api-key upload --user-id <yourUserOCID> --key-file NoSQLLabPublicKey.pem > info.json
+
+````
+
+Choose **demonosql** as compartment name, choose a description and add it.
+
+
+### Step 3. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
+Note: need to be executed in the PHOENIX region
+  
 
 ````
 git clone https://github.com/dario-vega/demo-lab-nosql
 sh ~/demo-lab-nosql/data.sh
+cp ~/NoSQLLabPrivateKey.pem  ~/demo-lab-nosql/express-nosql
+cp ~/info.json ~/demo-lab-nosql/express-nosql
+ 
 ````
 
 
@@ -27,6 +51,7 @@ sh ~/demo-lab-nosql/data.sh
 ### Step 1. NoSQL Tables Deployment -- Always Free
 
 Open the Cloud Shell (click in the icon > ) in the top right menu. Use the following instructions
+Note: need to be executed in the PHOENIX region
 
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
@@ -130,20 +155,22 @@ cat queries.sql
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 ````
+cd ~/demo-lab-nosql/express-nosql
 export NOSQL_COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 
+export NOSQL_USER_ID=`cat info.json | jq -r '."data"."user-id"'`
+export NOSQL_FINGERPRINT=`cat info.json | jq -r '."data"."fingerprint"'`
 echo $OCI_REGION
 echo $OCI_TENANCY
-export NOSQL_USER_ID=ocid1.user.oc1..aaaa3nvma
-export NOSQL_FINGERPRINT=d4:85:30a:c6
-copy NoSQLLabPrivateKey.pem
+echo $NOSQL_USER_ID
+echo $NOSQL_FINGERPRINT
 
 ````
 
 Run the express_oracle_nosql application
 
 ````
-cd demo-lab-nosql/express-nosql
+cd ~/demo-lab-nosql/express-nosql
 npm install
 node express_oracle_nosql.js &
 ````
@@ -163,8 +190,8 @@ Read Data
 ````
 curl -X GET http://localhost:3000  | jq
 curl  http://localhost:3000/?limit=3 | jq
-curl  "http://localhost:3000/?limit=3&orderby=id"  | jq
-curl  "http://localhost:3000/?limit=12&orderby=blog"  | jq
+curl  "http://localhost:3000/?limit=3&orderby=ticketNo"  | jq
+curl  "http://localhost:3000/?limit=12&orderby=fullName"  | jq
 
 curl -X GET http://localhost:3000/1762322446040  | jq
 
