@@ -111,6 +111,9 @@ In the textbox Query, keep the text SELECT * FROM demo
 
 Click on Run query 
 
+## LAB3  Read and Load data using a Python CLI application
+
+
 
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
@@ -140,14 +143,19 @@ Read Data
 
 ````
 curl -X GET http://localhost:3000  | jq
-curl  http://localhost:3000/?limit=3 | jq
+````
+````
 curl  "http://localhost:3000/?limit=3&orderby=ticketNo"  | jq
+````
+````
 curl  "http://localhost:3000/?limit=12&orderby=fullName"  | jq
+````
 
+````
 curl -X GET http://localhost:3000/1762322446040  | jq
-
+````
+````
 curl -X DELETE http://localhost:3000/1762322446040  | jq
-
 ````
 
 👷 BUILD SPECIFIC to APIS and running using Instance principal
