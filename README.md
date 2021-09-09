@@ -58,7 +58,7 @@ Note: need to be executed in the PHOENIX region
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
-source ~/serverless-with-nosql-database/env.sh
+source ~/demo-lab-nosql/env.sh
 ````
 
 ````
@@ -113,12 +113,19 @@ Click on Run query
 
 ## LAB3  Read and Load data using a Python CLI application
 
-
-
-## LAB3  Execute and Review Code Node.js express  - 20 minutes
+````
+source ~/demo-lab-nosql/env.sh
+cd ~/demo-lab-nosql/
+pip3 install borneo
+pip3 install cmd2
+python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
 
 ````
-source ~/serverless-with-nosql-database/env.sh
+
+## LAB4  Execute and Review Code Node.js express  - 20 minutes
+
+````
+source ~/demo-lab-nosql/env.sh
 ````
 
 Run the express_oracle_nosql application
