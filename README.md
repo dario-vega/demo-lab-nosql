@@ -87,10 +87,6 @@ oci nosql table create --compartment-id "$COMP_ID"   \
 --wait-for-state SUCCEEDED
 ````
 
-This section is for information purpose only: How to create a NoSQL tables Using Terraform.
-
-```
-
 Minimize Shell Cloud Console
 
 ### Step 2. Adding Data to the NoSQL table from the OCI Console 
