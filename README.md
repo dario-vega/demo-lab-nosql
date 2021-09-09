@@ -58,22 +58,24 @@ Note: need to be executed in the PHOENIX region
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
-cd ~/demo-lab-nosql/objects
-CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
-COMP_ID=${CMP_ID-$OCI_TENANCY}
-echo $COMP_ID
+source ~/serverless-with-nosql-database/env.sh
+````
+````
 DDL_TABLE=$(cat demo.nosql)
 echo $DDL_TABLE
-
+````
+````
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
 --is-auto-reclaimable true \
 --wait-for-state SUCCEEDED
-
+````
+````
 DDL_TABLE=$(cat demoKeyVal.nosql)
 echo $DDL_TABLE
-
+````
+````
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demoKeyVal  --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
@@ -157,16 +159,7 @@ cat queries.sql
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 ````
-cd ~/demo-lab-nosql/express-nosql
-export NOSQL_COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
-
-export NOSQL_USER_ID=`cat info.json | jq -r '."data"."user-id"'`
-export NOSQL_FINGERPRINT=`cat info.json | jq -r '."data"."fingerprint"'`
-echo $OCI_REGION
-echo $OCI_TENANCY
-echo $NOSQL_USER_ID
-echo $NOSQL_FINGERPRINT
-
+source ~/serverless-with-nosql-database/env.sh
 ````
 
 Run the express_oracle_nosql application
