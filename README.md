@@ -122,6 +122,11 @@ pip3 install cmd2
 python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
 
 ````
+You can also load data using the following command
+
+load ../BaggageData/load_multi_line.json demo
+
+
 
 ## LAB4  Execute and Review Code Node.js express  - 20 minutes
 
