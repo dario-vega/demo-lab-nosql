@@ -228,10 +228,10 @@ Read Data from demo table
 curl -X GET http://localhost:3000/demo  | jq
 ````
 ````
-curl  "http://localhost:3000/demo?limit=3&orderby=ticketNo"  | jq
+curl  -X GET "http://localhost:3000/demo?limit=3&orderby=ticketNo"  | jq
 ````
 ````
-curl  "http://localhost:3000/demo?limit=12&orderby=fullName"  | jq
+curl  -X GET  "http://localhost:3000/demo?limit=12&orderby=fullName"  | jq
 ````
 
 Read Data for a specific TicketNumber using GET command
