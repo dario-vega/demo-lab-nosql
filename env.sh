@@ -15,15 +15,3 @@ echo $NOSQL_FINGERPRINT
 echo $NOSQL_PRIVKEY_FILE
 echo $NOSQL_COMP_ID
 
-if [ ! -e ~/.ignore_serverless-with-nosql-database_conf_review ]
-then
-  echo Validating YOUR Environment
-  TEST_NOSQLTABLES=`oci nosql table list --compartment-id $COMP_ID | jq '.data.items[].name ' | wc -l`
-  if [ $TEST_NOSQLTABLES -le 0 ] 
-  then
-     echo "ERROR: Please review the configuration"
-  else
-     echo "Configuration succesfully reviewed"
-     touch ~/.ignore_serverless-with-nosql-database_conf_review
-  fi
-fi
