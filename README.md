@@ -297,6 +297,8 @@ node express_baggage_demo_nosql.js &
 ````
 curl -X GET http://localhost:3500/getBagInfoByTicketNumber?ticketNo=1762322446040  | jq
 ````
+
+````
 curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq````
 ````
 
