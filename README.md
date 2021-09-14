@@ -186,51 +186,9 @@ In the textbox Query, keep the text SELECT * FROM demo
 
 Click on Run query 
 
-## LAB3  Read and Load data using a Python CLI application
 
-````
-source ~/demo-lab-nosql/env.sh
-cd ~/demo-lab-nosql/
-pip3 install borneo
-pip3 install cmd2
-python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
 
-````
-Use the folloowing command to load data 
-
-````
-load ../BaggageData/load_multi_line.json demo
-````
-Execute the following queries
-
-````
-SELECT *
-FROM demo d
-WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
-````
-
-````
-SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
-FROM demo d
-WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
-````
-
-````
-SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
-FROM demo d
-WHERE d.bagInfo.flightLegs.flightNo =ANY "BM715"
-AND d.bagInfo.flightLegs.flightNo =ANY "BM204";
-````
-
-````
-SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
-FROM   demo d
-WHERE  d.bagInfo.flightLegs.flightNo =ANY "BM715"
-AND    d.bagInfo.flightLegs.flightNo =ANY "BM204"
-AND    size(d.bagInfo.flightLegs) = 2;
-````
-
-## LAB4  Execute and Review Code Node.js express  - 20 minutes
+## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 ````
 source ~/demo-lab-nosql/env.sh
@@ -251,12 +209,14 @@ Insert Data in demo table
 ````
 FILE_NAME=`ls -1 ~/BaggageData/baggage_data_file99.json`
 echo $FILE_NAME
-curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000
+curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000/demo
 ````
 
 Insert Data in demoKeyVal table
 
 ````
+FILE_NAME=`ls -1 ~/BaggageData/baggage_data_file99.json`
+echo $FILE_NAME
 curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000/demoKeyVal
 ````
 
@@ -302,7 +262,49 @@ curl -X GET http://localhost:3500/getBagInfoByTicketNumber?ticketNo=176232244604
 curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq
 ````
 
+## LAB4  Read and Load data using a Python CLI application
 
+````
+source ~/demo-lab-nosql/env.sh
+cd ~/demo-lab-nosql/
+pip3 install borneo
+pip3 install cmd2
+python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
+
+````
+Use the folloowing command to load data 
+
+````
+load ../BaggageData/load_multi_line.json demo
+````
+Execute the following queries
+
+````
+SELECT *
+FROM demo d
+WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
+````
+
+````
+SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+FROM demo d
+WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
+````
+
+````
+SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+FROM demo d
+WHERE d.bagInfo.flightLegs.flightNo =ANY "BM715"
+AND d.bagInfo.flightLegs.flightNo =ANY "BM204";
+````
+
+````
+SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+FROM   demo d
+WHERE  d.bagInfo.flightLegs.flightNo =ANY "BM715"
+AND    d.bagInfo.flightLegs.flightNo =ANY "BM204"
+AND    size(d.bagInfo.flightLegs) = 2;
+````
 
 👷 Running using Instance principal
 
