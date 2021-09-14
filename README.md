@@ -181,12 +181,39 @@ pip3 install cmd2
 python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
 
 ````
-You can also load data using the following command
+Use the folloowing command to load data 
 
 ````
 load ../BaggageData/load_multi_line.json demo
 ````
+Execute the following queries
 
+````
+    SELECT *
+    FROM demo d
+    WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
+    ````
+
+    ````
+    SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+    FROM demo d
+    WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715';
+    ````
+
+    ````
+    SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+    FROM demo d
+    WHERE d.bagInfo.flightLegs.flightNo =ANY "BM715"
+    AND d.bagInfo.flightLegs.flightNo =ANY "BM204";
+    ````
+
+    ````
+    SELECT d.fullName, d.contactPhone, d.ticketNo , d.bagInfo.flightLegs.flightNo as bagInfo
+    FROM   demo d
+    WHERE  d.bagInfo.flightLegs.flightNo =ANY "BM715"
+    AND    d.bagInfo.flightLegs.flightNo =ANY "BM204"
+    AND    size(d.bagInfo.flightLegs) = 2;
+    ````
 
 ## LAB4  Execute and Review Code Node.js express  - 20 minutes
 
