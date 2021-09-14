@@ -299,7 +299,7 @@ curl -X GET http://localhost:3500/getBagInfoByTicketNumber?ticketNo=176232244604
 ````
 
 ````
-curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq````
+curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq
 ````
 
 
