@@ -88,6 +88,21 @@ oci nosql table create --compartment-id "$COMP_ID"   \
 --wait-for-state SUCCEEDED --wait-for-state FAILED 
 ````
 
+Throubleshooting
+````
+oci nosql work-request-error list --work-request-id ocid1.nosqltableworkrequest.oc1.iad.amaaaaaackmxu5iav5363jswuwprpwrapb4k2irbzv7g5py7yxe2dchazjwq
+{
+  "data": {
+    "items": [
+      {
+        "code": "TableLimitExceeded",
+        "message": "Free tables are not available at this region",
+        "timestamp": "2021-09-14T13:10:18.758000+00:00"
+      }
+    ]
+  }
+}
+````
 Minimize Shell Cloud Console
 
 ### Step 2. Adding Data to the NoSQL table from the OCI Console 
