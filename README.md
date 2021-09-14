@@ -124,8 +124,9 @@ python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRIN
 ````
 You can also load data using the following command
 
+````
 load ../BaggageData/load_multi_line.json demo
-
+````
 
 
 ## LAB4  Execute and Review Code Node.js express  - 20 minutes
@@ -151,6 +152,10 @@ FILE_NAME=`ls -1 ~/BaggageData/baggage_data_file99.json`
 echo $FILE_NAME
 curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000
 ````
+````
+curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000/demoKeyVal
+````
+
 
 Read Data
 
