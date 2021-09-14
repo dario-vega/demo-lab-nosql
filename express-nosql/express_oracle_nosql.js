@@ -1,5 +1,7 @@
-// graphql_oracle_nosql.js
-// You need create the following table described in ddl.sql
+//
+// Copyright (c) 2021 Oracle, Inc.  All rights reserved.
+// Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+//
 
 let express = require('express');
 const NoSQLClient = require('oracle-nosqldb').NoSQLClient;
@@ -29,7 +31,7 @@ process
   process.exit(0);
 });
 
-// Create a new baggage entry
+// Create a new entry in the demo table
 app.post('/demo', async (req, res) => {
     try {
         const result = await client.put("demo", req.body );
@@ -40,7 +42,7 @@ app.post('/demo', async (req, res) => {
     }
 });
 
-// Create a new baggage entry demokeyval
+// Create a new entry in the demoKeyVal table
 app.post('/demoKeyVal', async (req, res) => {
     try {
         const result = await client.put("demoKeyVal", {value : req.body}, {exactMatch:true} );
@@ -51,7 +53,7 @@ app.post('/demoKeyVal', async (req, res) => {
     }
 });
 
-// Get a baggage by ticketNo
+// Get a baggage from the demo table by primary key - ticketNo
 app.get('/demo/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
     try {
@@ -63,7 +65,7 @@ app.get('/demo/:ticketNo', async (req, res) => {
     }
 });
 
-// Delete a  baggage by ticketNo
+// Delete a baggage by ticketNo
 app.delete('demo/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
     try {
@@ -75,7 +77,7 @@ app.delete('demo/:ticketNo', async (req, res) => {
     }
 });
 
-// Get all  baggage with pagination
+// Get all baggage in the demo table with pagination
 app.get('/demo', async function (req, resW) {
     let statement = `SELECT * FROM demo`;
     const rows = [];
