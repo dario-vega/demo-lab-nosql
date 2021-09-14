@@ -286,7 +286,23 @@ DELETE Data for a specific TicketNumber
 curl -X DELETE http://localhost:3000/1762322446040  | jq
 ````
 
-👷 BUILD SPECIFIC to APIS and running using Instance principal
+Execute the API request
+
+````
+cd ~/demo-lab-nosql/express-nosql
+npm install
+node express_baggage_demo_nosql.js &
+````
+
+````
+curl -X GET http://localhost:3500/getBagInfoByTicketNumber?ticketNo=1762322446040  | jq
+````
+curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq````
+````
+
+
+
+👷 Running using Instance principal
 
 ````
 function createClient() {
