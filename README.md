@@ -260,6 +260,13 @@ curl -X GET http://localhost:3500/getBagInfoByTicketNumber?ticketNo=176232244604
 ````
 
 ````
+curl -X GET http://localhost:3500/getBagInfoByTicketNumber  | jq
+````
+````
+curl -X GET http://localhost:3500/getBagInfoByTicketNumber | jq '. | length'
+````
+
+````
 curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  | jq
 ````
 
