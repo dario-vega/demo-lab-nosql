@@ -72,7 +72,7 @@ oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
 --is-auto-reclaimable true \
---wait-for-state SUCCEEDED
+--wait-for-state SUCCEEDED --wait-for-state FAILED 
 ````
 
 ````
@@ -85,7 +85,7 @@ oci nosql table create --compartment-id "$COMP_ID"   \
 --name demoKeyVal  --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 50,  \"maxStorageInGBs\": 25,  \"maxWriteUnits\": 50 }" \
 --is-auto-reclaimable true \
---wait-for-state SUCCEEDED
+--wait-for-state SUCCEEDED --wait-for-state FAILED 
 ````
 
 Minimize Shell Cloud Console
