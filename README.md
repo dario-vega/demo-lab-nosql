@@ -31,7 +31,7 @@ oci iam user api-key upload --user-id <yourUserOCID> --key-file NoSQLLabPublicKe
 
 ````
 
-### Step 3. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
+### Step 3. Cloud Shell Configuration - clone github, execute shell data.sh 
 
 Open the Cloud Shell (click in the icon > ) in the top right menu
 
