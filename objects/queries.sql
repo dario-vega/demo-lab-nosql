@@ -6,14 +6,6 @@ SELECT *
 FROM demo d 
 WHERE ticketNo = "1762386738153"
 
-SELECT * 
-FROM demo d 
-WHERE cast (ticketNo as Long)= 1762386738153
-
-SELECT * 
-FROM demo d  
-WHERE ticketNo = 1762386738153
-
 SELECT fullname, size(d.baginfo.flightLegs) as flightLegs, d.baginfo.flightLegs.flightNo as flightNo
 FROM demo d
 
