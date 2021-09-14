@@ -264,26 +264,26 @@ curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost
 Read Data from demo table
 
 ````
-curl -X GET http://localhost:3000  | jq
+curl -X GET http://localhost:3000/demo  | jq
 ````
 ````
-curl  "http://localhost:3000/?limit=3&orderby=ticketNo"  | jq
+curl  "http://localhost:3000/demo?limit=3&orderby=ticketNo"  | jq
 ````
 ````
-curl  "http://localhost:3000/?limit=12&orderby=fullName"  | jq
+curl  "http://localhost:3000/demo?limit=12&orderby=fullName"  | jq
 ````
 
 Read Data for a specific TicketNumber using GET command
 
 
 ````
-curl -X GET http://localhost:3000/1762322446040  | jq
+curl -X GET http://localhost:3000/demo/1762322446040  | jq
 ````
 
 DELETE Data for a specific TicketNumber 
 
 ````
-curl -X DELETE http://localhost:3000/1762322446040  | jq
+curl -X DELETE http://localhost:3000/demo/1762322446040  | jq
 ````
 
 Execute the API request
