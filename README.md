@@ -59,6 +59,7 @@ Note: need to be executed in the PHOENIX region
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
 source ~/demo-lab-nosql/env.sh
+cd ~/demo-lab-nosql/objects/
 ````
 
 ````
