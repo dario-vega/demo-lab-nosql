@@ -1,5 +1,7 @@
-// graphql_oracle_nosql.js
-// You need create the following table described in ddl.sql
+//
+// Copyright (c) 2021 Oracle, Inc.  All rights reserved.
+// Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+//
 
 let express = require('express');
 const NoSQLClient = require('oracle-nosqldb').NoSQLClient;
