@@ -30,7 +30,7 @@ process
 });
 
 // Create a new baggage entry
-app.post('/', async (req, res) => {
+app.post('/demo', async (req, res) => {
     try {
         const result = await client.put("demo", req.body );
         res.json({ result: result});
@@ -52,7 +52,7 @@ app.post('/demoKeyVal', async (req, res) => {
 });
 
 // Get a baggage by ticketNo
-app.get('/:ticketNo', async (req, res) => {
+app.get('/demo/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
     try {
         const result = await client.get("demo", { ticketNo })
@@ -64,7 +64,7 @@ app.get('/:ticketNo', async (req, res) => {
 });
 
 // Delete a  baggage by ticketNo
-app.delete('/:ticketNo', async (req, res) => {
+app.delete('demo/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
     try {
         const result = await client.delete("demo", { ticketNo });
@@ -76,7 +76,7 @@ app.delete('/:ticketNo', async (req, res) => {
 });
 
 // Get all  baggage with pagination
-app.get('/', async function (req, resW) {
+app.get('/demo', async function (req, resW) {
     let statement = `SELECT * FROM demo`;
     const rows = [];
 
