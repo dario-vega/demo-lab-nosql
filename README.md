@@ -204,19 +204,22 @@ node express_oracle_nosql.js &
 
 Execute the API request
 
-Insert Data
+Insert Data in demo table
 
 ````
 FILE_NAME=`ls -1 ~/BaggageData/baggage_data_file99.json`
 echo $FILE_NAME
 curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000
 ````
+
+Insert Data in demoKeyVal table
+
 ````
 curl -X POST -H "Content-Type: application/json" -d @$FILE_NAME http://localhost:3000/demoKeyVal
 ````
 
 
-Read Data
+Read Data from demo table
 
 ````
 curl -X GET http://localhost:3000  | jq
@@ -228,9 +231,15 @@ curl  "http://localhost:3000/?limit=3&orderby=ticketNo"  | jq
 curl  "http://localhost:3000/?limit=12&orderby=fullName"  | jq
 ````
 
+Read Data for a specific TicketNumber using GET command
+
+
 ````
 curl -X GET http://localhost:3000/1762322446040  | jq
 ````
+
+DELETE Data for a specific TicketNumber 
+
 ````
 curl -X DELETE http://localhost:3000/1762322446040  | jq
 ````
