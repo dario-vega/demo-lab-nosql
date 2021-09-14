@@ -66,7 +66,7 @@ app.get('/demo/:ticketNo', async (req, res) => {
 });
 
 // Delete a baggage by ticketNo
-app.delete('demo/:ticketNo', async (req, res) => {
+app.delete('/demo/:ticketNo', async (req, res) => {
     const { ticketNo } = req.params;
     try {
         const result = await client.delete("demo", { ticketNo });
