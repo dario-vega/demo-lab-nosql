@@ -40,9 +40,10 @@ Note: need to be executed in the PHOENIX region
 
 ````
 git clone https://github.com/dario-vega/demo-lab-nosql
-sh ~/demo-lab-nosql/data.sh
-cp ~/NoSQLLabPrivateKey.pem  ~/demo-lab-nosql/express-nosql
-cp ~/info.json ~/demo-lab-nosql/express-nosql
+mv demo-lab-nosql serverless-with-nosql-database
+sh ~/serverless-with-nosql-database/data.sh
+cp ~/NoSQLLabPrivateKey.pem  ~/serverless-with-nosql-database/express-nosql
+cp ~/info.json ~/serverless-with-nosql-database/express-nosql
  
 ````
 
@@ -58,8 +59,8 @@ Note: need to be executed in the PHOENIX region
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
-source ~/demo-lab-nosql/env.sh
-cd ~/demo-lab-nosql/objects/
+source ~/serverless-with-nosql-database/env.sh
+cd ~/serverless-with-nosql-database/objects/
 ````
 
 ````
@@ -191,13 +192,13 @@ Click on Run query
 ## LAB3  Execute and Review Code Node.js express  - 20 minutes
 
 ````
-source ~/demo-lab-nosql/env.sh
+source ~/serverless-with-nosql-database/env.sh
 ````
 
 Run the express_oracle_nosql application
 
 ````
-cd ~/demo-lab-nosql/express-nosql
+cd ~/serverless-with-nosql-database/express-nosql
 npm install
 node express_oracle_nosql.js &
 ````
@@ -249,7 +250,7 @@ curl -X DELETE http://localhost:3000/demo/1762322446040  | jq
 Execute the API request
 
 ````
-cd ~/demo-lab-nosql/express-nosql
+cd ~/serverless-with-nosql-database/express-nosql
 npm install
 node express_baggage_demo_nosql.js &
 ````
@@ -265,8 +266,8 @@ curl -X GET http://localhost:3500/getPassengersAffectedByFlight?flightNo=BM715  
 ## LAB4  Read and Load data using a Python CLI application
 
 ````
-source ~/demo-lab-nosql/env.sh
-cd ~/demo-lab-nosql/
+source ~/serverless-with-nosql-database/env.sh
+cd ~/serverless-with-nosql-database/
 pip3 install borneo
 pip3 install cmd2
 python3 nosql.py -s cloud -t $OCI_TENANCY -u $NOSQL_USER_ID -f $NOSQL_FINGERPRINT -k ~/NoSQLLabPrivateKey.pem -e https://nosql.${OCI_REGION}.oci.oraclecloud.com
