@@ -6,7 +6,7 @@ rm  BaggageData.tar.gz
 
 # Create a file to do a multi line load
 rm -f load_multi_line.json
-for file in `ls -1 ~/BaggageData/baggage_data* | tail -20`; do
+for file in `ls -1 ~/BaggageData/baggage_data* | tail -50`; do
   echo $file
   cat $file | tr '\n' ' ' >> load_multi_line.json
   echo >> load_multi_line.json
