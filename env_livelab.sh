@@ -9,10 +9,6 @@ export NOSQL_PRIVKEY_FILE=~/NoSQLLabPrivateKey.pem
 
 
 export NOSQL_ALWAYS_FREE=false
-if [ $OCI_REGION == "us-phoenix-1"]
-then
-  export NOSQL_ALWAYS_FREE=true
-fi
 
 if [ $CMP_ID == "your_compartment_ocid" ] || [ $NOSQL_USER_ID == "your_user_ocid" ]
 then
