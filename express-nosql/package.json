@@ -1,11 +1,11 @@
 {
-  "name": "express_oracle_nosql",
+  "name": "express-oracle-nosql",
   "version": "1.0.0",
   "description": "Basic demo of Express with Oracle NoSQL",
   "private":"true",
-  "main": "express_oracle_nosql.js",
+  "main": "express-oracle-nosql.js",
   "scripts": {
-    "start": "express_oracle_nosql.js"
+    "start": "express-oracle-nosql.js"
   },
   "keywords": [],
   "author": " ",
