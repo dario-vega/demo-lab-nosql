@@ -8,7 +8,7 @@ export NOSQL_FINGERPRINT=ab:8c:f1:98:a8:53:d7:1f:ac:2e:92:4a:47:80:1b:f4
 export NOSQL_PRIVKEY_FILE=~/NoSQLLabPrivateKey.pem
 
 
-export NOSQL_ALWAYS_FREE=false
+export NOSQL_ALWAYS_FREE=true
 
 if [ $CMP_ID == "your_compartment_ocid" ] || [ $NOSQL_USER_ID == "your_user_ocid" ]
 then
