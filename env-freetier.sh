@@ -14,3 +14,9 @@ echo $NOSQL_FINGERPRINT
 echo $NOSQL_PRIVKEY_FILE
 echo $NOSQL_COMP_ID
 
+if [ $OCI_REGION == 'us-phoenix-1' ]
+then
+  export NOSQL_ALWAYS_FREE=true
+else
+  export NOSQL_ALWAYS_FREE=false
+fi
