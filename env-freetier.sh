@@ -1,4 +1,5 @@
 CMP_ID=`oci iam compartment list --name  demonosql  --compartment-id $OCI_TENANCY | jq -r '."data"[].id'`
+if [ -z "$CMP_ID" ];  then unset CMP_ID  ; fi;
 # Advanced user, if you deploy in a compartment other than root or root/demonosql, change the following line with the good compartment_ocid and unconmment
 # CMP_ID=<your_compartment ocid>
 
