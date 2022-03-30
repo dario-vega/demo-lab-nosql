@@ -1,6 +1,6 @@
 mkdir ~/BaggageData
 cd ~/BaggageData
-curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/LxPTqOqEx3GoRb7myZ3VfDoFsj6lTACv-NpLLT7P9D8gHNgXVXCx03WHhx1MJT4Y/n/c4u04/b/data-management-library-files/o/nosql/BaggageData.tar.gz -o BaggageData.tar.gz
+curl https://objectstorage.us-ashburn-1.oraclecloud.com/p/WwljGusAgTOa0HNqK7f_8dV0jGo_DzNg7ZnMIlvpDMDbD5PmTcBFDfUut6JvTbiH/n/c4u04/b/data-management-library-files/o/BaggageData.tar.gz -o BaggageData.tar.gz
 tar xvzf BaggageData.tar.gz
 rm  BaggageData.tar.gz
 
